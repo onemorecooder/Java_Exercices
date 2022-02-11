@@ -23,7 +23,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         boolean exit = false;
         do{
-            /* MÉTODO DE MENÚ */
+            /* MÉTODO DE MENÚ! */
             showMenu();
             /* LO ÚNICO QUE NO CONTROLO ES LA EXCEPCIÓN DE CUANDO SE INTRODUCEN CARÁCTERES EN UN INT */
             switch(sc.nextLine()){

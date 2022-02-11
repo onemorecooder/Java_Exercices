@@ -32,6 +32,7 @@ public class Main {
                 case "3" -> modifyAthlete(); // MODIFICAR ATLÉTAS
                 case "4" -> deleteAthlete(); // ELIMINAR ATLETAS
                 case "5" -> {
+                    // ÚNICAMENTE LA OPCIÓN 5 ES PARA SALIR DEL PROGRAMA
                     exit = true;
                     System.out.println("Closing application...");
                 }

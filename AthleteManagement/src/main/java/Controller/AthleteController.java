@@ -125,7 +125,7 @@ public class AthleteController {
         }
     }
 
-    // MÉTODO DE LA PARTE 2!
+    // MODIFICAR ATLETA!
     public static void modifyAthlete() {
         Scanner sc = new Scanner(System.in);
 
@@ -176,7 +176,7 @@ public class AthleteController {
         }
     }
 
-    // MÉTODO DE LA PARTE 2!
+    // ELIMINAR ATLETA!
     public static void deleteAthlete() {
         System.out.println("Getting started with the athlete removal tool");
         System.out.println("Enter the ID:");
@@ -201,7 +201,7 @@ public class AthleteController {
         }
     }
 
-    // MÉTODO DE LA PARTE 2!
+    // DEVOLVER EL ATLETA CON EL MISMO ID!
     public static Athlete getAthletebyID(String id) {
         boolean found = false;
         Athlete athMod = null;

@@ -29,8 +29,8 @@ public class Main {
             switch(sc.nextLine()){
                 case "1" -> registerAthlete(); // MÉTODO REGISTRO
                 case "2" -> viewAthletes(); // MÉTODO DE VISUALIZACIÓN
-                case "3" -> System.out.println("COMING SOON...");//modifyAthlete(); // MODIFICAR ATLÉTAS
-                case "4" -> System.out.println("COMING SOON...");//deleteAthlete(); // ELIMINAR ATLETAS
+                case "3" -> modifyAthlete(); // MODIFICAR ATLÉTAS
+                case "4" -> deleteAthlete(); // ELIMINAR ATLETAS
                 case "5" -> {
                     exit = true;
                     System.out.println("Closing application...");

@@ -42,7 +42,7 @@ public class AthleteController {
 
         if (athletes == null) {
             System.out.println("How many athletes do you want to register?");
-            athletes = new Athlete[readIntBetweenMinAndMax(min, max)]; 
+            athletes = new Athlete[readIntBetweenMinAndMax(min, max)];
         }
         if (isFull(athletes)) {
             System.out.println("There is no space to enter more athletes");
@@ -52,31 +52,33 @@ public class AthleteController {
             String id = readStringIDnoRepeated(8, 1); // NO REPEATED PARA INTRODUCIR NUEVO ATLETA YA QUE NO PUEDE CONSTAR UNO IGUAL
             System.out.println(id);
             boolean onlyWord = false;
-            
+
             do {
                 System.out.println("Insert your name:");
                 name = sc.nextLine(); // INSERTAMOS EL NOMBRE DEL ATLETA Y SE LO PASAMOS AL MÉTODO
                 onlyWord = onlyWords(name); // MÉTODO PARA SABER SI EN LA CADENA DE TEXTO ÚNICAMENTE HAYAN LETRAS
             } while (!onlyWord);
-            
+
             dorsal = between1000and9999(); // MÉTODO CREADO PARA QUE EL DORSAL TENGA 4 DIGITOS
-            
+
             System.out.println("Do you want to type extra information?\n[1]YES\n[2]NO");
             extraInfo = sc.nextInt(); // RECOGEMOS LA OPCIÓN
             switch (extraInfo) {
-                case 1: /* [SI] SI SE INTRODUCE INFORMACIÓN ADICIONAL QUE EN ESTE CASO ES LA EDAD, SE CREA EL 
+                case 1:
+                    /* [SI] SI SE INTRODUCE INFORMACIÓN ADICIONAL QUE EN ESTE CASO ES LA EDAD, SE CREA EL 
                             ATLETA CON EL CONSTRUCTOR QUE TIENE LA VARIABLE DE EDAD*/
                     age = over18(); // MÉTODO CREADO PARA QUE NO SE PUEDAN INSCRIBIR MENORES O MAYORES DE 100 AÑOS
                     for (int i = 0; i < athletes.length; i++) {
                         if (athletes[i] == null) {
                             int pos = firstFreeArrayPosition(athletes); // PRIMERA POSICIÓN DEL ARRAY
-                            athletes[pos] = new Athlete(id, name, dorsal, age); 
+                            athletes[pos] = new Athlete(id, name, dorsal, age);
                             break;
                         }
                     }
                     manyPositions(athletes); // MÉTODO QUE TE IMPRIME LA CANTIDAD DE POSICIONES RESTANTES
                     break;
-                case 2: /* [NO] SI NO SE INTRODUCE INFORMACIÓN ADICIONAL QUE EN ESTE CASO ES LA EDAD, SE CREA EL 
+                case 2:
+                    /* [NO] SI NO SE INTRODUCE INFORMACIÓN ADICIONAL QUE EN ESTE CASO ES LA EDAD, SE CREA EL 
                             ATLETA CON EL CONSTRUCTOR QUE NO TIENE LA VARIABLE DE EDAD*/
                     for (int i = 0; i < athletes.length; i++) {
                         if (athletes[i] == null) {
@@ -98,7 +100,7 @@ public class AthleteController {
         int contPersonas = 1;
         /* RECOGEMOS EL VALOR BOOLEANO DEL MÉTODO QUE NOS 
             DICE SI EL MÉTODO ESTÁ VACÍO*/
-        /* EN EL CASO DE QUE ESTÉ VACÍO NOS MOSTRARÁ EL SIGUIENTE MENSAJE */
+ /* EN EL CASO DE QUE ESTÉ VACÍO NOS MOSTRARÁ EL SIGUIENTE MENSAJE */
         boolean empty = isEmpty(athletes);
         if (empty == true) {
             System.out.println("Try again!");
@@ -111,7 +113,8 @@ public class AthleteController {
                     System.out.print("ID: " + athletes[i].getID() + "\n");
                     System.out.print("Name: " + athletes[i].getName() + "\n");
                     System.out.print("Dorsal: " + athletes[i].getBib() + "\n");
-                    if (athletes[i].getAge() != 0) { /* LA VARIABLE, EN EL CASO DE SER INICIADA, AL SER ENTERO SE INICIA POR DEFECTO EN 0,
+                    if (athletes[i].getAge() != 0) {
+                        /* LA VARIABLE, EN EL CASO DE SER INICIADA, AL SER ENTERO SE INICIA POR DEFECTO EN 0,
                                                         LE DECIMOS QUE SI LA EDAD ES DISTINTA A 0 IMPRIMA LA EDAD Y DIGA SI ES SENIOR O NO.*/
                         System.out.print("Age: " + athletes[i].getAge() + "\n");
                         System.out.println("Senior: " + isSenior(athletes[i].getAge()));
@@ -131,10 +134,12 @@ public class AthleteController {
 
         if (athletes == null) {
             System.out.println("No athletes registered");
-        } else {
+        }
+
+        if (!isEmpty(athletes)) {
             System.out.println("Getting started with the athlete modification");
             System.out.println("Enter the ID:");
-            String id = readStringID(9, 1);
+            String id = readStringID(8, 1);
             if (idAthleteRepeated(id)) {
                 boolean exit = false;
                 do {
@@ -178,26 +183,28 @@ public class AthleteController {
 
     // ELIMINAR ATLETA!
     public static void deleteAthlete() {
-        System.out.println("Getting started with the athlete removal tool");
-        System.out.println("Enter the ID:");
-        String id = readStringID(9, 1);
-        boolean found = false;
-        int pos = 0;
-        for (int i = 0; i < athletes.length && athletes[i] !=null; i++) {
-            if (id.equals(athletes[i].getID())) {
-                pos = i;
-                found = true;
-                break;
-            } else {
-                found = false;
+        if (!isEmpty(athletes)) {// sabemos si el array está vacío
+            System.out.println("Getting started with the athlete removal tool");
+            System.out.println("Enter the ID:");
+            String id = readStringID(8, 1);
+            boolean found = false;
+            int pos = 0;
+            for (int i = 0; i < athletes.length && athletes[i] != null; i++) {
+                if (id.equals(athletes[i].getID())) {
+                    pos = i;
+                    found = true;
+                    break;
+                } else {
+                    found = false;
+                }
             }
-        }
-        if (found == true) {
-            System.out.println("Deleting user...");
-            System.out.println("The user " + athletes[pos].getName() + " has been deleted.");
-            athletes[pos] = null;
-        } else{
-            System.out.println("No coincidence.");
+            if (found == true) {
+                System.out.println("Deleting user...");
+                System.out.println("The user " + athletes[pos].getName() + " has been deleted.");
+                athletes[pos] = null;
+            } else {
+                System.out.println("No coincidence.");
+            }
         }
     }
 

@@ -6,6 +6,7 @@ package View;
 
 import static Controller.AthleteController.deleteAthlete;
 import static Controller.AthleteController.modifyAthlete;
+import static Controller.AthleteController.raceAthletes;
 import static Controller.AthleteController.registerAthlete;
 import static Controller.AthleteController.viewAthletes;
 import static MyLibrary.DataValidation.showMenu;
@@ -31,7 +32,8 @@ public class Main {
                 case "2" -> viewAthletes(); // MÉTODO DE VISUALIZACIÓN
                 case "3" -> modifyAthlete(); // MODIFICAR ATLÉTAS
                 case "4" -> deleteAthlete(); // ELIMINAR ATLETAS
-                case "5" -> {
+                case "5" -> raceAthletes(); // CARRERA
+                case "6" -> {
                     // ÚNICAMENTE LA OPCIÓN 5 ES PARA SALIR DEL PROGRAMA
                     exit = true;
                     System.out.println("Closing application...");

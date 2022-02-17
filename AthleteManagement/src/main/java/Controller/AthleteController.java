@@ -9,6 +9,7 @@ import static Model.Athlete.isSenior;
 import static MyLibrary.Arrays.*;
 import static MyLibrary.DataValidation.*;
 import java.util.Scanner;
+import java.util.Random;
 
 /**
  *
@@ -222,8 +223,66 @@ public class AthleteController {
             }
         }
         if (found == true) {
-            System.out.println("The application found a coincidence,\n Going back to the menu");
+            System.out.println("The application found a coincidence.");
         }
         return athMod;
+    }
+
+    public static Athlete raceAthletes() {
+        Scanner sc = new Scanner(System.in);
+
+        Athlete winner = null;
+        int option, contRace;
+        boolean entrada = false;
+        do {
+            System.out.println("¿Cuantos atletas quieres que compitan? (Mínimo 2)");
+            option = sc.nextInt();
+            System.out.println("¿Cuantas carreras quieres que corran?");
+            contRace = sc.nextInt();
+            entrada = true;
+        } while (!entrada);
+        if (entrada = true) {
+            Athlete[] race = new Athlete[option];
+            int[][] carreras = new int[option][contRace];
+            float[] medias = new float[option];
+            for (int i = 0; i < race.length; i++) {
+                System.out.println("Introduce el competidor nº " + i + ":");
+                String id = readStringID(8, 1);
+                race[i] = getAthletebyID(id);
+            }
+
+            System.out.println("Resumen de las carreras: :");
+            for (int i = 0; i < carreras.length; i++) {
+                for (int j = 0; j < carreras[i].length; j++) {
+                    carreras[i][j] = (int) (Math.random() * option) + 1;
+                }
+            }
+
+            for (int i = 0; i < carreras.length; i++) {
+                System.out.print("- Atleta con dorsal nº " + race[i].getBib() + ": ");
+                for (int j = 0; j < carreras[i].length; j++) {
+                    System.out.print(carreras[i][j] + " ");
+
+                }
+                System.out.println();
+            }
+            int sum = 0;
+            float media;
+
+            for (int i = 0; i < carreras.length; i++) {
+                for (int j = 0; j < carreras[i].length; j++) {
+                    sum = sum + carreras[i][j];
+                }
+                medias[i] = sum / contRace;
+            }
+
+            for (int i = 0; i < carreras.length; i++) {
+                System.out.println("- Media de victorias del atleta con dorsal nº " + race[i].getBib() + ": " + medias[i] + " ");
+            }
+
+        } else {
+            System.out.println("Volviendo al menú");
+        }
+        return winner;
     }
 }

@@ -22,7 +22,8 @@ public class DataValidation {
                 + "\n[2] VIEW ATHLETES"
                 + "\n[3] MODIFY ATHLETE"
                 + "\n[4] DELETE ATHLETE"
-                + "\n[5] EXIT");
+                + "\n[5] RACE"
+                + "\n[6] EXIT");
     }
 
     /* CON ESTE MÉTODO SABEMOS COMO SU NOMBRE INDICA SI EL NÚMERO 

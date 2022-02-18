@@ -247,4 +247,16 @@ public class DataValidation {
     }
     return true;
 }
+    
+    /*DORSAL ÚNICAMENTE DE CUATRO CIFRAS*/
+    public static boolean fourNumbersDorsal(int dorsal){
+        boolean correct = false;
+        if (Integer.toString(dorsal).length() == 4){
+            correct = true;
+        } else {
+            System.out.println("Introduce un dorsal de 4 cifras");
+        }
+        return correct;
+    }
+    
 }

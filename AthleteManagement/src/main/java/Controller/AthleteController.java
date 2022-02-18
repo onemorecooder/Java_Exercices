@@ -31,7 +31,7 @@ public class AthleteController {
         }
         return repeated;
     }
-    
+
     // REGISTRO DEL ATLETA
     public static void registerAthlete() {
         Scanner sc = new Scanner(System.in);
@@ -60,8 +60,7 @@ public class AthleteController {
                 onlyWord = onlyWords(name); // MÉTODO PARA SABER SI EN LA CADENA DE TEXTO ÚNICAMENTE HAYAN LETRAS
             } while (!onlyWord);
 
-            dorsal = between1000and9999(); // MÉTODO CREADO PARA QUE EL DORSAL TENGA 4 DIGITOS
-            
+            //dorsal = between1000and9999(); // MÉTODO CREADO PARA QUE EL DORSAL TENGA 4 DIGITOS
             System.out.println("Do you want to type extra information?\n[1]YES\n[2]NO");
             extraInfo = sc.nextInt(); // RECOGEMOS LA OPCIÓN
             switch (extraInfo) {
@@ -72,7 +71,7 @@ public class AthleteController {
                     for (int i = 0; i < athletes.length; i++) {
                         if (athletes[i] == null) {
                             int pos = firstFreeArrayPosition(athletes); // PRIMERA POSICIÓN DEL ARRAY
-                            athletes[pos] = new Athlete(id, name, dorsal, age);
+                            athletes[pos] = new Athlete(id, name, age);
                             break;
                         }
                     }
@@ -84,7 +83,7 @@ public class AthleteController {
                     for (int i = 0; i < athletes.length; i++) {
                         if (athletes[i] == null) {
                             int pos = firstFreeArrayPosition(athletes); // SEGUARDA LA PRIMERA POSICIÓN LIBRE
-                            athletes[pos] = new Athlete(id, name, dorsal);// Y SE LA PASAMOS PARA QUE INTRODUZCA EL NUEVO ATLETA AHÍ
+                            athletes[pos] = new Athlete(id, name);// Y SE LA PASAMOS PARA QUE INTRODUZCA EL NUEVO ATLETA AHÍ
                             break;
                         }
                     }
@@ -132,7 +131,7 @@ public class AthleteController {
     // MODIFICAR ATLETA!
     public static void modifyAthlete() {
         Scanner sc = new Scanner(System.in);
-
+        boolean correct;
         if (athletes == null) {
             System.out.println("No athletes registered");
         }
@@ -159,8 +158,15 @@ public class AthleteController {
                             break;
                         case 2:
                             sc.nextLine();
-                            System.out.println("Enter the new dorsal");
-                            athToMod.setBib(between1000and9999());
+                            do {
+                                System.out.println("Enter the new dorsal");
+                                int dorsal;
+                                dorsal = sc.nextInt();
+                                correct = fourNumbersDorsal(dorsal);
+                                if (correct == true) {
+                                    athToMod.setBib(dorsal);
+                                }
+                            } while (!correct);
                             break;
                         case 3:
                             sc.nextLine();

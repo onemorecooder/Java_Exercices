@@ -14,20 +14,21 @@ public class Athlete {
     private String name;
     private int bib;
     private int age;
+    public static int dorsal = 1000;
     
     /* CONSTRUCTOR COMPLETO */
-    public Athlete (String ID, String name, int bib, int age){
+    public Athlete (String ID, String name, int age){
         this.ID = ID;
         this.name = name;
-        this.bib = bib;
+        this.bib = dorsal++;
         this.age = age;
     }
     
     /* CONSTRUCTOR DE CAMPOS OBLIGATORIOS */
-    public Athlete (String ID, String name, int bib){
+    public Athlete (String ID, String name){
         this.ID = ID;
         this.name = name;
-        this.bib = bib;
+        this.bib = dorsal++;
     }
     
     /* MÉTODO PARA SABER SI EL ATLETA ES MAYOR DE 50*/

@@ -31,7 +31,7 @@ public class AthleteController {
         }
         return repeated;
     }
-
+    
     // REGISTRO DEL ATLETA
     public static void registerAthlete() {
         Scanner sc = new Scanner(System.in);
@@ -61,7 +61,7 @@ public class AthleteController {
             } while (!onlyWord);
 
             dorsal = between1000and9999(); // MÉTODO CREADO PARA QUE EL DORSAL TENGA 4 DIGITOS
-
+            
             System.out.println("Do you want to type extra information?\n[1]YES\n[2]NO");
             extraInfo = sc.nextInt(); // RECOGEMOS LA OPCIÓN
             switch (extraInfo) {
@@ -237,9 +237,16 @@ public class AthleteController {
         do {
             System.out.println("¿Cuantos atletas quieres que compitan? (Mínimo 2)");
             option = sc.nextInt();
+
             System.out.println("¿Cuantas carreras quieres que corran?");
             contRace = sc.nextInt();
-            entrada = true;
+            if (option < 2 || option > manyPositionsFull(athletes)) {
+                entrada = false;
+                System.out.println("Introduce un valor correcto");
+            } else {
+                entrada = true;
+            }
+
         } while (!entrada);
         if (entrada = true) {
             Athlete[] race = new Athlete[option];
@@ -273,12 +280,19 @@ public class AthleteController {
                 for (int j = 0; j < carreras[i].length; j++) {
                     sum = sum + carreras[i][j];
                 }
-                medias[i] = sum / contRace;
+                medias[i] = (float) sum / (float) contRace;
             }
 
             for (int i = 0; i < carreras.length; i++) {
-                System.out.println("- Media de victorias del atleta con dorsal nº " + race[i].getBib() + ": " + medias[i] + " ");
+                System.out.println("\n Media de victorias del atleta con dorsal nº " + race[i].getBib() + ": " + (float) medias[i] + " ");
             }
+            float menor = medias[0];
+            for (int i = 0; i < medias.length; i++) {
+                if (medias[i] < menor) {
+                    menor = medias[i];
+                }
+            }
+            System.out.println("El ganador es el atleta con la media: " + menor);
 
         } else {
             System.out.println("Volviendo al menú");

@@ -52,7 +52,7 @@ public class Athlete {
     public void setAge(int age){
         this.age = age;
     }
-    
+        
     // GETTERS //
     public String getID(){
         return ID;

@@ -79,4 +79,16 @@ public class Arrays {
         }
         System.out.println("\nThere are " + freePos + " positions left.");
     }
+    
+    // CANTIDAD DE POSICIONES LLENAS
+    public static int manyPositionsFull(Object[] array) {
+        int fullPos = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                fullPos++;
+            }
+        }
+        return fullPos;
+    }
+    
 }

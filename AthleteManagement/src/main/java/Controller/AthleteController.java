@@ -6,7 +6,6 @@ package Controller;
 
 import Model.Athlete;
 import static Model.Athlete.isSenior;
-import static MyLibrary.Arrays.isEmpty;
 import static MyLibrary.DataValidation.*;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -68,14 +67,15 @@ public class AthleteController {
             default:
                 System.out.println("Incorrect option!");
         }
-
     }
 
     // VISUALIZAR ATLETAS
     public static void viewAthletes() {
 
         if (athletes.size() <= 0) {
-            System.out.println("No athletes registered");
+            System.out.println("\n**************************");
+            System.out.println("**No athletes registered**");
+            System.out.println("**************************");
         } else {
             for (int i = 0; i < athletes.size(); i++) {
                 System.out.println("*************************************");
@@ -100,7 +100,9 @@ public class AthleteController {
     public static void modifyAthlete() {
         Scanner sc = new Scanner(System.in);
         if (athletes.size() <= 0) {
-            System.out.println("No athletes registered");
+            System.out.println("\n**************************");
+            System.out.println("**No athletes registered**");
+            System.out.println("**************************");
         } else {
             System.out.println("Getting started with the athlete modification");
             System.out.println("Enter the ID:");
@@ -163,7 +165,9 @@ public class AthleteController {
     // ELIMINAR ATLETA!
     public static void deleteAthlete() {
         if (athletes.size() <= 0) {
-            System.out.println("No athletes registered");
+            System.out.println("\n**************************");
+            System.out.println("**No athletes registered**");
+            System.out.println("**************************");
         } else {
             System.out.println("Getting started with the athlete removal tool");
             System.out.println("Enter the ID:");

@@ -5,10 +5,12 @@
 package View;
 
 import static Controller.AthleteController.deleteAthlete;
-import static Controller.AthleteController.getAthletes;
 import static Controller.AthleteController.modifyAthlete;
 import static Controller.AthleteController.registerAthlete;
 import static Controller.AthleteController.viewAthletes;
+import static Controller.RaceController.deleteRace;
+import static Controller.RaceController.registerRace;
+import static Controller.RaceController.viewRaces;
 import static MyLibrary.DataValidation.showMenu;
 import java.util.Scanner;
 /**
@@ -32,7 +34,10 @@ public class Main {
                 case "2" -> viewAthletes(); // MÉTODO DE VISUALIZACIÓN
                 case "3" -> modifyAthlete(); // MODIFICAR ATLÉTAS
                 case "4" -> deleteAthlete(); // ELIMINAR ATLETAS
-                case "5" -> {
+                case "5" -> registerRace(); // REGISTRAR CARRERA
+                case "6" -> viewRaces(); // VER CARRERASS
+                case "7" -> deleteRace(); // BORRAR CARRERAS
+                case "0" -> {
                     // ÚNICAMENTE LA OPCIÓN 5 ES PARA SALIR DEL PROGRAMA
                     exit = true;
                     System.out.println("Closing application...");

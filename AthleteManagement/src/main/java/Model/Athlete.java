@@ -4,6 +4,8 @@
  */
 package Model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ajose
@@ -14,6 +16,7 @@ public class Athlete {
     private String name;
     private int bib;
     private int age;
+    private ArrayList<Race> athleteRaces;
     public static int dorsal = 1000;
     
     /* CONSTRUCTOR COMPLETO */
@@ -22,6 +25,8 @@ public class Athlete {
         this.name = name;
         this.bib = dorsal++;
         this.age = age;
+        athleteRaces = new ArrayList<>();
+        System.out.println("Athlete created -->\nMemory address: " + this + "\nName: " + name + "\nDorsal: " + bib);
     }
     
     /* CONSTRUCTOR DE CAMPOS OBLIGATORIOS */
@@ -29,6 +34,12 @@ public class Athlete {
         this.ID = ID;
         this.name = name;
         this.bib = dorsal++;
+        athleteRaces = new ArrayList<>();
+        System.out.println("Athlete created -->\nMemory address: " + this + "\nName: " + name + "\nDorsal: " + bib);
+    }
+    
+    public ArrayList<Race> getAthleteRaces(){
+        return athleteRaces;
     }
     
     /* MÉTODO PARA SABER SI EL ATLETA ES MAYOR DE 50*/

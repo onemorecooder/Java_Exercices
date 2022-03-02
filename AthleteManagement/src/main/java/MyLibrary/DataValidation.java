@@ -15,14 +15,18 @@ public class DataValidation {
 
     /* MÉTODO PARA MOSTRAR EL MENÚ DEL PROGRAMA */
     public static void showMenu() {
-        System.out.println("\n########################"
+        System.out.println("\n##################################\n"
                 + "\nWELCOME TO ATHLETE MANAGEMENT"
                 + "\nSelect an option:"
                 + "\n[1] REGISTER ATHLETE"
                 + "\n[2] VIEW ATHLETES"
                 + "\n[3] MODIFY ATHLETE"
                 + "\n[4] DELETE ATHLETE"
-                + "\n[5] EXIT");
+                + "\n[5] REGISTER RACE"
+                + "\n[6] VIEW RACES"
+                + "\n[7] DELETE RACE"
+                + "\n[0] EXIT");
+        System.out.println("\n##################################\n");
     }
 
     /* CON ESTE MÉTODO SABEMOS COMO SU NOMBRE INDICA SI EL NÚMERO 

@@ -4,13 +4,8 @@
  */
 package View;
 
-import static Controller.AthleteController.deleteAthlete;
-import static Controller.AthleteController.modifyAthlete;
-import static Controller.AthleteController.registerAthlete;
-import static Controller.AthleteController.viewAthletes;
-import static Controller.RaceController.deleteRace;
-import static Controller.RaceController.registerRace;
-import static Controller.RaceController.viewRaces;
+import static Controller.AthleteController.*;
+import static Controller.RaceController.*;
 import static MyLibrary.DataValidation.showMenu;
 import java.util.Scanner;
 /**

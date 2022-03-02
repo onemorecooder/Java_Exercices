@@ -21,10 +21,14 @@ public class Athlete {
     
     /* CONSTRUCTOR COMPLETO */
     public Athlete (String ID, String name, int age){
+        /*EL ID SERÁ INMUTABLE, AHORA SE AUTOINCREMENTA Y NO SE PUEDE EDITAR*/
         this.ID = ID;
         this.name = name;
+        /*EL BIB SERÁ INMUTABLE, AHORA SE AUTOINCREMENTA Y NO SE PUEDE EDITAR*/
         this.bib = dorsal++;
         this.age = age;
+        /*CREAMOS EL ARRAYLIST EN EL QUE GUARDAREMOS TODAS LAS CARRERAS
+        EN LAS QUE HA PARTICIPADO CADA ATLETA*/
         athleteRaces = new ArrayList<>();
         System.out.println("Athlete created -->\nMemory address: " + this + "\nName: " + name + "\nDorsal: " + bib);
     }
@@ -38,6 +42,7 @@ public class Athlete {
         System.out.println("Athlete created -->\nMemory address: " + this + "\nName: " + name + "\nDorsal: " + bib);
     }
     
+    /*CON ESTE GETTER SACAMOS EL ARRAYLIST PRIVADO*/
     public ArrayList<Race> getAthleteRaces(){
         return athleteRaces;
     }

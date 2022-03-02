@@ -4,11 +4,10 @@
  */
 package Controller;
 
-import Model.Athlete;
 import static Model.Athlete.isSenior;
 import static MyLibrary.DataValidation.*;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
+import Model.Athlete;
 
 /**
  *

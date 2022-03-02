@@ -17,8 +17,11 @@ public class Race {
     private String Location;
     private int distance;
     private LocalDateTime dateTime;
+    /*DECLARAMOS EL ARRALYST QUE GUARDARÁ A LOS ATLETAS QUE ESTÉN REGISTRADOS
+    EN ESA CARRERA*/
     private ArrayList<Athlete> raceAthletes;
     
+    /*CONSTRUCTOR PARA CREAR UNA CARRERA*/
     public Race(String codeRace, String Location, int distance){
         this.codeRace = codeRace;
         this.Location = Location;
@@ -27,6 +30,7 @@ public class Race {
         raceAthletes = new ArrayList<>();
     }
     
+    /*GETTERS*/
     public String getCodeRace(){
         return codeRace;
     }
